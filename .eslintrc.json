@@ -1,18 +1,37 @@
 {
-   "env": {
-      "browser": true,
-      "es2021": true
-   },
    "extends": [
-      "plugin:react/recommended",
-      "standard-with-typescript",
-      "prettier"
+     "react-app",
+     "prettier"
+     
    ],
-   "overrides": [],
-   "parserOptions": {
-      "ecmaVersion": "latest",
-      "sourceType": "module"
+   "env": {
+     "mocha": true,
+     "es6": true,
+     "commonjs": true,
+     "browser": true
    },
-   "plugins": ["react"],
-   "rules": {}
-}
+   "parserOptions": {
+     "ecmaVersion": 2020,
+     "sourceType": "module",
+     "ecmaFeatures": {
+       "jsx": true,
+       "modules": true,
+       "experimentalObjectRestSpread": true
+     }
+   },
+   "plugins": [
+     "prettier"
+   ],
+   "rules": {
+     "no-underscore-dangle": "off",
+     "class-methods-use-this": "off",
+     "import/no-extraneous-dependencies": [
+       "error",
+       {
+         "devDependencies": true
+       }
+     ]
+   }
+   
+
+ }

@@ -1,5 +1,10 @@
 export default function Home() {
    return (
-      <h1>olá mundo</h1>
+      <section className='flex flex-col justify-center items-center w-screen h-screen'> 
+         
+         
+         
+
+      </section>
    )
 }
