@@ -38,14 +38,14 @@ export default function MenuBar() {
             month : monthArray[dateToday.getMonth()],
             week : weekDayArray[dateToday.getDay()],
             AmPm: 0 < dateToday.getHours() && dateToday.getHours() < 12 ? 'AM' : 'PM'
-         })
+         }) 
       }, 1000)
       return () => clearInterval(actualDate)
    }, [])
 
    return (
-         <nav className= 'z-50 bg-white/60 fixed top-0 h-9 w-full flex items-center justify-between'>
-            <div className='ml-5 flex flex-row gap-5 text-sm'>
+         <nav className= 'z-50 backdrop-blur-lg bg-neutral-300/30 fixed top-0 h-9 w-full flex items-center justify-between'>
+            <div className='ml-5 flex flex-row gap-5 text-sm text-white'>
                <Image className='hover:cursor-pointer' src={AppleIcon} alt='' width={20} height={20}/>
                <strong className='hover:cursor-pointer'>Finder</strong>
                <p className='hover:cursor-pointer'>File</p>
@@ -64,7 +64,7 @@ export default function MenuBar() {
 
                <div className='flex flex-row gap-5'>
                   <p>{context.week} {context.month} {context.date} </p>
-                  <p>{context.hours}:{context.min} {context.AmPm} </p>
+                  <p>{context.hours}:{context.min.toFixed()} {context.AmPm} </p>
                </div>
             </div>
          </nav>

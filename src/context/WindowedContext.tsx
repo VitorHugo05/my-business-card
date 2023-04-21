@@ -12,10 +12,10 @@ interface testProps {
 }
 
 interface appsProps {
-   brave: testProps
-   vsCode: testProps
-   terminal: testProps
-   discord: testProps
+   brave: testProps,
+   vsCode: testProps,
+   terminal: testProps,
+   discord: testProps,
    fileExplorer: testProps
 }
 
@@ -35,7 +35,7 @@ export const WindowProvider = ({children}: WindowProviderProps) => {
    const [apps, setApps] = useState<appsProps>({} as appsProps)
 
    function windowed(system: systemTypeProps, isOpen: boolean, isStarted: boolean){
-      setApps({...apps, [system]: {...apps[system], isOpen, isStarted }})
+      setApps({...apps, [system]: {...apps[system], isOpen, isStarted}})
    }
 
    return (

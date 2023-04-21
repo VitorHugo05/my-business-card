@@ -25,18 +25,26 @@ export default function Window() {
             return({ content: (<Terminal />), title: 'Terminal', BackgroundColor: '#8F8CA8'})
    }}
 
+   // if isMaximazed {
+   //    // fullscreen
+   //    // não vai ser draggable
+   // }
+
    return (
       <>
          {
             Object.keys(apps).map((key: any, index) => {
                console.log(key)
                if (apps[key as systemTypeProps ].isOpen)
+               
                return (
-                  <Draggable 
-                     key={index} 
-                     defaultPosition={{x: 0, y: 0}}
-                  >
 
+                  
+                     <Draggable 
+                        key={index} 
+                        defaultPosition={{x: 0, y: 0}}
+                     >
+                  
                      <div className=' z-1 absolute w-4/5 h-3/4 rounded-lg'>
                         
                         <nav className='h-12 rounded-t-md flex flex-row items-center justify-between bg-[#8F8CA8]'>
