@@ -9,5 +9,5 @@
 }
 
 body {
-   @apply bg-hero
+   @apply bg-hero overflow-hidden
 }

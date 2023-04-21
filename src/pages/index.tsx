@@ -4,12 +4,12 @@ import Window from '@/components/window/Window';
 
 export default function Home() {
    return (
-      <section className='flex flex-col justify-center items-center w-screen h-screen overflow-hidden'> 
+      <section className='flex flex-col justify-center items-center w-screen h-screen'> 
          
          <MenuBar />
          <Dock />
          <Window />
-
+   
       </section>
    )
 }
