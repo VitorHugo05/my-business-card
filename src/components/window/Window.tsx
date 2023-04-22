@@ -1,5 +1,5 @@
 import { WindowContext, systemTypeProps } from '@/context/WindowedContext';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import Draggable from 'react-draggable';
 import Vscode from '../vscode/Vscode';
 import Brave from '../brave/Brave';
@@ -14,7 +14,7 @@ export default function Window() {
    let setWidth = ''
    let setMinimize = '' 
    let bool = false
-   let obj:null | {x: number, y: number} = null
+   let obj:undefined | {x: number, y: number} = undefined
 
    function renderSystem(system: systemTypeProps) {
       switch (system) {
@@ -59,13 +59,12 @@ export default function Window() {
 
                return (
 
-                     
-                        <Draggable 
-                           key={index} 
-                           defaultPosition={{x: 0, y: 0}}
-                           disabled={bool}
-                           position={obj}
-                        >
+                     <Draggable
+                        key={index} 
+                        defaultPosition={{x: 0, y: 0}}
+                        disabled={bool}
+                        position={obj}
+                     >  
                      
                         <div className={`${setMinimize} ${setWidth} z-1 absolute rounded-lg`}>
                            
@@ -74,7 +73,7 @@ export default function Window() {
                               
                               <div className="flex items-center gap-2 pb-6 ml-5 mt-5">
                                  <button  onClick={() => minimizeSystem(key, true)} className="w-4 h-4 bg-[#F4BF4F] rounded-full" />
-                                 <button  onClick={() => maximizedSystem(key, !apps[key].isMaximized)} className="w-4 h-4 bg-[#61C554] rounded-full" />
+                                 <button  onClick={() => maximizedSystem(key, !apps[key as systemTypeProps].isMaximized)} className="w-4 h-4 bg-[#61C554] rounded-full" />
                                  <button  onClick={() => startedSystem(key, false, false, true)} className="w-4 h-4 bg-[#ED6A5E] rounded-full" />
                               </div>
                               
