@@ -12,7 +12,9 @@ export default function Home() {
                   
                <MenuBar />
                <Dock />
-               <Window />
+               
+                  <Window />
+               
                   
             </section>
          </BrowserView>

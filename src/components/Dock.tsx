@@ -8,11 +8,8 @@ import FileExplorer from '../../public/icons/fileExplorer.png'
 import { useContext } from 'react';
 import { WindowContext } from '@/context/WindowedContext';
 
-
-
-
 export default function Dock() {
-   const {apps, windowed} = useContext(WindowContext)
+   const {apps, startedSystem} = useContext(WindowContext)
    
   
    return (
@@ -21,7 +18,7 @@ export default function Dock() {
         <ul className='flex gap-4 items-center'>
           <li className='flex flex-col gap-1 items-center'>
             
-            <button className='flex flex-col items-center gap-0.5' onClick={() => windowed('brave', true, true)}>
+            <button className='flex flex-col items-center gap-0.5' onClick={() => startedSystem('brave', true, true, false)}>
               <Image src={Brave} alt='' width={80} height={80}/>
                {apps?.brave?.isStarted && 
                   <div className='backdrop-blur-lg absolute bottom-0 mb-1 rounded-full h-2 w-2 bg-neutral-50/70'></div>
@@ -30,7 +27,7 @@ export default function Dock() {
           </li>
           
           <li className='flex flex-col gap-1 items-center'>
-            <button className='flex flex-col items-center gap-0.5' onClick={() => windowed('vsCode', true, true)}>
+            <button className='flex flex-col items-center gap-0.5' onClick={() => startedSystem('vsCode', true, true, false)}>
               <Image src={Vscode} alt='' width={80} height={80}/>
               {apps?.vsCode?.isStarted && 
                   <div className='backdrop-blur-lg absolute bottom-0 mb-1 rounded-full h-2 w-2 bg-neutral-50/70'></div>
@@ -39,7 +36,7 @@ export default function Dock() {
           </li>
 
           <li className='flex flex-col gap-1 items-center'>
-            <button className='flex flex-col items-center gap-0.5' onClick={() => windowed('terminal', true, true)}>
+            <button className='flex flex-col items-center gap-0.5' onClick={() => startedSystem('terminal', true, true, false)}>
               <Image src={TerminalApple} alt='' width={75} height={75}/>
               {apps?.terminal?.isStarted && 
                   <div className='backdrop-blur-lg absolute bottom-0 mb-1 rounded-full h-2 w-2 bg-neutral-50/70'></div>
@@ -48,7 +45,7 @@ export default function Dock() {
           </li>
 
           <li className='flex flex-col gap-1 items-center'>
-            <button className='flex flex-col items-center gap-0.5' onClick={() => windowed('discord', true, true)}>
+            <button className='flex flex-col items-center gap-0.5' onClick={() => startedSystem('discord', true, true, false)}>
               <Image src={Discord} alt='' width={80} height={80}/>
               {apps?.discord?.isStarted && 
                   <div className='backdrop-blur-lg absolute bottom-0 mb-1 rounded-full h-2 w-2 bg-neutral-50/70'></div>
@@ -57,7 +54,7 @@ export default function Dock() {
           </li>
 
           <li className='flex flex-col gap-1 items-center'>
-            <button className='flex flex-col items-center gap-0.5' onClick={() => windowed('fileExplorer', true, true)}>
+            <button className='flex flex-col items-center gap-0.5' onClick={() => startedSystem('fileExplorer', true, true, false)}>
               <Image className='rounded-lg' src={FileExplorer} alt='' width={80} height={80}/>
               {apps?.fileExplorer?.isStarted && 
                   <div className='backdrop-blur-lg absolute bottom-0 mb-1 rounded-full h-2 w-2 bg-neutral-50/70'></div>

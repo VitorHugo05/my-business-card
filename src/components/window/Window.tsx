@@ -1,5 +1,5 @@
 import { WindowContext, systemTypeProps } from '@/context/WindowedContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import Draggable from 'react-draggable';
 import Vscode from '../vscode/Vscode';
 import Brave from '../brave/Brave';
@@ -9,7 +9,12 @@ import Terminal from '../terminal/Terminal';
 
 
 export default function Window() {
-   const {apps, windowed} = useContext(WindowContext)
+   const {apps, maximizedSystem, startedSystem, minimizeSystem} = useContext(WindowContext)
+
+   let setWidth = ''
+   let setMinimize = '' 
+   let bool = false
+   let obj:null | {x: number, y: number} = null
 
    function renderSystem(system: systemTypeProps) {
       switch (system) {
@@ -25,58 +30,76 @@ export default function Window() {
             return({ content: (<Terminal />), title: 'Terminal', BackgroundColor: '#8F8CA8'})
    }}
 
-   // if isMaximazed {
-   //    // fullscreen
-   //    // não vai ser draggable
-   // }
-
+   
    return (
       <>
          {
             Object.keys(apps).map((key: any, index) => {
-               console.log(key)
-               if (apps[key as systemTypeProps ].isOpen)
                
+               if (apps[key as systemTypeProps ].isMaximized) {
+                  setWidth = 'w-3/4 h-3/4'
+               } else {
+                  setWidth= 'w-full h-full'
+               }
+
+               if (apps[key as systemTypeProps ].isMinimize) {
+                  setMinimize= 'hidden'
+               } else {
+                  setMinimize= 'visible'
+               }
+
+               if (apps[key as systemTypeProps ].isStarted)
+               
+               if (apps[key as systemTypeProps ].isMaximized) {
+                  bool = false
+               } else {
+                  bool = true
+                  obj = {x: 0, y:36}
+               }
+
                return (
 
-                  
-                     <Draggable 
-                        key={index} 
-                        defaultPosition={{x: 0, y: 0}}
-                     >
-                  
-                     <div className=' z-1 absolute w-4/5 h-3/4 rounded-lg'>
-                        
-                        <nav className='h-12 rounded-t-md flex flex-row items-center justify-between bg-[#8F8CA8]'>
+                     
+                        <Draggable 
+                           key={index} 
+                           defaultPosition={{x: 0, y: 0}}
+                           disabled={bool}
+                           position={obj}
+                        >
+                     
+                        <div className={`${setMinimize} ${setWidth} z-1 absolute rounded-lg`}>
                            
+                           <nav className='h-12 rounded-t-md flex flex-row items-center justify-between bg-[#8F8CA8]'>
+                              
+                              
+                              <div className="flex items-center gap-2 pb-6 ml-5 mt-5">
+                                 <button  onClick={() => minimizeSystem(key, true)} className="w-4 h-4 bg-[#F4BF4F] rounded-full" />
+                                 <button  onClick={() => maximizedSystem(key, !apps[key].isMaximized)} className="w-4 h-4 bg-[#61C554] rounded-full" />
+                                 <button  onClick={() => startedSystem(key, false, false, true)} className="w-4 h-4 bg-[#ED6A5E] rounded-full" />
+                              </div>
+                              
+                              <h1>
+                              {apps[key as systemTypeProps].isOpen &&
+                                 renderSystem(key).title
+                              }
+                              </h1>
+
+                              <div> 
+                                 &nbsp;
+                              </div>
+
+                           </nav>
+
+                           <div className='w-full h-px bg-slate-400'/>
                            
-                           <div className="flex items-center gap-2 pb-6 ml-5 mt-5">
-                           
-                              <button onClick={() => windowed(key as systemTypeProps, false, true)} className="w-4 h-4 bg-[#F4BF4F] rounded-full" />
-                              <button className="w-4 h-4 bg-[#61C554] rounded-full" />
-                              <button onClick={() => windowed(key as systemTypeProps, false, false)} className="w-4 h-4 bg-[#ED6A5E] rounded-full" />
+                           <div className={`rounded-b-md w-full h-full bg-[${apps[key as systemTypeProps].isOpen && renderSystem(key).BackgroundColor}]`}>
+                              {apps[key as systemTypeProps].isOpen && renderSystem(key).content}
                            </div>
                            
-                           <h1>
-                           {apps[key as systemTypeProps].isOpen &&
-                              renderSystem(key).title
-                           }
-                           </h1>
-
-                           <div> 
-                              &nbsp;
-                           </div>
-
-                        </nav>
-
-                        <div className='w-full h-px bg-slate-400'/>
-                        
-                        <div className={`rounded-b-md w-full h-full bg-[${apps[key as systemTypeProps].isOpen && renderSystem(key).BackgroundColor}]`}>
-                           {apps[key as systemTypeProps].isOpen && renderSystem(key).content}
                         </div>
-                        
-                     </div>
-                  </Draggable>
+                     
+                     </Draggable>
+                           
                )
             })
          }
