@@ -10,7 +10,9 @@ import Terminal from '../terminal/Terminal';
 
 export default function Window() {
    const {apps, maximizedSystem, startedSystem, minimizeSystem} = useContext(WindowContext)
-
+   
+   let setRounded = ''
+   let setRoundedB = ''
    let setWidth = ''
    let setMinimize = '' 
    let bool = false
@@ -38,8 +40,12 @@ export default function Window() {
                
                if (apps[key as systemTypeProps ].isMaximized) {
                   setWidth = 'w-3/4 h-3/4'
+                  setRounded= 'rounded-lg'
+                  setRoundedB= 'rounded-b-md'
                } else {
                   setWidth= 'w-full h-full'
+                  setRounded= 'rounded-none'
+                  setRoundedB= 'rounded-none'
                }
 
                if (apps[key as systemTypeProps ].isMinimize) {
@@ -66,7 +72,7 @@ export default function Window() {
                         position={obj}
                      >  
                      
-                        <div className={`${setMinimize} ${setWidth} z-1 absolute rounded-lg`}>
+                        <div className={`${setMinimize} ${setWidth} z-1 absolute ${setRounded}`}>
                            
                            <nav className='h-12 rounded-t-md flex flex-row items-center justify-between bg-[#8F8CA8]'>
                               
@@ -91,7 +97,7 @@ export default function Window() {
 
                            <div className='w-full h-px bg-slate-400'/>
                            
-                           <div className={`rounded-b-md w-full h-full bg-[${apps[key as systemTypeProps].isOpen && renderSystem(key).BackgroundColor}]`}>
+                           <div className={`${setRoundedB} w-full h-full bg-[${apps[key as systemTypeProps].isOpen && renderSystem(key).BackgroundColor}]`}>
                               {apps[key as systemTypeProps].isOpen && renderSystem(key).content}
                            </div>
                            

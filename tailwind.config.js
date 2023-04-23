@@ -11,6 +11,6 @@ module.exports = {
          'hero': "url('/image/background.png')"
       })
     },
-  },
   plugins: [],
+}
 }
