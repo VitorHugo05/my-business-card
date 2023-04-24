@@ -20,7 +20,7 @@ export default function Dock() {
       setShowMenu(false)
       
    }
-   
+
    console.log(showMenu)
 
    return (
@@ -32,7 +32,7 @@ export default function Dock() {
       >
       
       <footer 
-         className={`${showMenu ? '-translate-y-4' : 'translate-y-80'} order-2 flex-1 transition duration-500 fixed bottom-0 w-full h-24 flex items-center justify-center`}
+         className={`${showMenu ? '-translate-y-4' : 'translate-y-80'} order-2 flex-1 transition duration-500 w-full h-24 flex items-center justify-center`}
       >
          <nav className=' p-4 border border-neutral-300 backdrop-blur-lg shadow-2xl bg-neutral-200/50 h-26 w-fit rounded-3xl inset-x-0 bottom-1 -translate-y-3'>
             <ul className='flex gap-4 items-center'>

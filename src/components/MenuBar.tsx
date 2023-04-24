@@ -41,6 +41,7 @@ export default function MenuBar() {
          }) 
       }, 1000)
       return () => clearInterval(actualDate)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [])
 
    return (
