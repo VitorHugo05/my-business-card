@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import { useContext, useState } from 'react'
 
+import { useContext, useState } from 'react'
 import { WindowContext } from '@/context/WindowedContext'
 
 import TerminalApple from '../../public/icons/terminal-apple.png'
@@ -31,11 +31,11 @@ export default function Dock() {
          <footer
             className={`
             ${
-               apps?.brave?.isMinimize ||
-               apps?.discord?.isMinimize ||
-               apps?.fileExplorer?.isMinimize ||
-               apps?.terminal?.isMinimize ||
-               apps?.vsCode?.isMinimize
+               apps.brave?.isMinimize ||
+               apps.discord?.isMinimize ||
+               apps.fileExplorer?.isMinimize ||
+               apps.terminal?.isMinimize ||
+               apps.vsCode?.isMinimize
                   ? '-translate-y-4'
                   : showMenu
                   ? '-translate-y-4'

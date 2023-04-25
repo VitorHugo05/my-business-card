@@ -79,9 +79,9 @@ export default function MenuBar() {
          </div>
          <div className="mr-5 flex flex-row items-center">
             <div className="flex flex-row gap-5 mr-8">
-               <BatteryCharging className="hover:cursor-pointer" />
-               <Wifi className="hover:cursor-pointer" />
-               <Search className="hover:cursor-pointer" />
+               <BatteryCharging className="md:visible invisible hover:cursor-pointer" />
+               <Wifi className="md:visible invisible hover:cursor-pointer" />
+               <Search className="md:visible invisible hover:cursor-pointer" />
             </div>
 
             <div className="flex flex-row gap-5">
