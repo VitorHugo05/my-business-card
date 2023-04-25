@@ -1,8 +1,8 @@
-import Image from 'next/image'
-import AppleIcon from '../../public/icons/apple.svg'
-import { Wifi, Search, BatteryCharging } from 'lucide-react'
+import Image from 'next/image';
+import AppleIcon from '../../public/icons/apple.svg';
+import { Wifi, Search, BatteryCharging } from 'lucide-react';
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
 const monthArray = [
    'Jan',
@@ -17,35 +17,34 @@ const monthArray = [
    'Out',
    'Nov',
    'Dez'
-]
-const weekDayArray = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom']
+];
+const weekDayArray = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'];
 
-type ContextHeader = {
-   hours: number
-   min: number
-   date: number
-   month: string
-   week: string
-   AmPm: string
+interface ContextHeader {
+   hours: string;
+   min: string;
+   date: number;
+   month: string;
+   week: string;
+   AmPm: string;
 }
 
 export default function MenuBar() {
-   const dateToday = new Date()
-
    const [context, setContext] = useState<ContextHeader>({
-      hours: dateToday.getHours(),
-      min: dateToday.getMinutes(),
-      date: dateToday.getDate(),
-      month: monthArray[dateToday.getMonth()],
-      week: weekDayArray[dateToday.getDay()],
-      AmPm: 0 < dateToday.getHours() && dateToday.getHours() < 12 ? 'AM' : 'PM'
-   })
+      hours: '',
+      min: '',
+      date: 0,
+      month: '',
+      week: '',
+      AmPm: ''
+   });
 
    useEffect(() => {
       const actualDate = setInterval(() => {
+         const dateToday = new Date();
          setContext({
-            hours: dateToday.getHours(),
-            min: dateToday.getMinutes(),
+            hours: String(dateToday.getHours()).padStart(2, '0'),
+            min: String(dateToday.getMinutes()).padStart(2, '0'),
             date: dateToday.getDate(),
             month: monthArray[dateToday.getMonth()],
             week: weekDayArray[dateToday.getDay()],
@@ -53,11 +52,10 @@ export default function MenuBar() {
                0 < dateToday.getHours() && dateToday.getHours() < 12
                   ? 'AM'
                   : 'PM'
-         })
-      }, 1000)
-      return () => clearInterval(actualDate)
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [])
+         });
+      }, 1000);
+      return () => clearInterval(actualDate);
+   }, []);
 
    return (
       <nav className="z-50 backdrop-blur-lg bg-neutral-300/30 absolute top-0 h-[36px] w-full flex items-center justify-between">
@@ -89,10 +87,10 @@ export default function MenuBar() {
                   {context.week} {context.month} {context.date}{' '}
                </p>
                <p>
-                  {context.hours}:{context.min.toFixed()} {context.AmPm}{' '}
+                  {context.hours}:{context.min} {context.AmPm}{' '}
                </p>
             </div>
          </div>
       </nav>
-   )
+   );
 }

@@ -1,22 +1,22 @@
-import { createContext, useState } from 'react'
+import { createContext, useState } from 'react';
 
 interface WindowProviderProps {
-   children: React.ReactNode
+   children: React.ReactNode;
 }
 
 interface testProps {
-   isStarted: boolean
-   isOpen: boolean
-   isMinimize: boolean
-   isMaximized: boolean
+   isStarted: boolean;
+   isOpen: boolean;
+   isMinimize: boolean;
+   isMaximized: boolean;
 }
 
 interface appsProps {
-   brave: testProps
-   vsCode: testProps
-   terminal: testProps
-   discord: testProps
-   fileExplorer: testProps
+   brave: testProps;
+   vsCode: testProps;
+   terminal: testProps;
+   discord: testProps;
+   fileExplorer: testProps;
 }
 
 export type systemTypeProps =
@@ -24,7 +24,7 @@ export type systemTypeProps =
    | 'vsCode'
    | 'terminal'
    | 'discord'
-   | 'fileExplorer'
+   | 'fileExplorer';
 
 interface WindowContextProps {
    startedSystem: (
@@ -32,17 +32,24 @@ interface WindowContextProps {
       isStarted: boolean,
       isOpen: boolean,
       isMinimize: boolean
-   ) => void
-   maximizedSystem: (system: systemTypeProps, isMaximized: boolean) => void
-   minimizeSystem: (system: systemTypeProps, isMinimize: boolean) => void
-   apps: appsProps
-   setApps: React.Dispatch<React.SetStateAction<appsProps>>
+   ) => void;
+   startedApplication: (
+      system: systemTypeProps,
+      isStarted: boolean,
+      isOpen: boolean,
+      isMaximized: boolean
+   ) => void;
+   maximizedSystem: (system: systemTypeProps, isMaximized: boolean) => void;
+   minimizeSystem: (system: systemTypeProps, isMinimize: boolean) => void;
+
+   apps: appsProps;
+   setApps: React.Dispatch<React.SetStateAction<appsProps>>;
 }
 
-export const WindowContext = createContext({} as WindowContextProps)
+export const WindowContext = createContext({} as WindowContextProps);
 
 export const WindowProvider = ({ children }: WindowProviderProps) => {
-   const [apps, setApps] = useState<appsProps>({} as appsProps)
+   const [apps, setApps] = useState<appsProps>({} as appsProps);
 
    function startedSystem(
       system: systemTypeProps,
@@ -52,16 +59,33 @@ export const WindowProvider = ({ children }: WindowProviderProps) => {
    ) {
       setApps({
          ...apps,
-         [system]: { ...apps[system], isStarted, isOpen, isMinimize }
-      })
+         [system]: {
+            ...apps[system],
+            isStarted,
+            isOpen,
+            isMinimize
+         }
+      });
+   }
+
+   function startedApplication(
+      system: systemTypeProps,
+      isStarted: boolean,
+      isOpen: boolean,
+      isMaximized: boolean
+   ) {
+      setApps({
+         ...apps,
+         [system]: { ...apps[system], isStarted, isOpen, isMaximized }
+      });
    }
 
    function maximizedSystem(system: systemTypeProps, isMaximized: boolean) {
-      setApps({ ...apps, [system]: { ...apps[system], isMaximized } })
+      setApps({ ...apps, [system]: { ...apps[system], isMaximized } });
    }
 
    function minimizeSystem(system: systemTypeProps, isMinimize: boolean) {
-      setApps({ ...apps, [system]: { ...apps[system], isMinimize } })
+      setApps({ ...apps, [system]: { ...apps[system], isMinimize } });
    }
 
    return (
@@ -71,10 +95,11 @@ export const WindowProvider = ({ children }: WindowProviderProps) => {
             maximizedSystem,
             minimizeSystem,
             apps,
+            startedApplication,
             setApps
          }}
       >
          {children}
       </WindowContext.Provider>
-   )
-}
+   );
+};

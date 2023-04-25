@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { WindowContext } from '@/context/WindowedContext'
 
 import TerminalApple from '../../public/icons/terminal-apple.png'
@@ -10,8 +10,12 @@ import Discord from '../../public/icons/discord.png'
 import FileExplorer from '../../public/icons/fileExplorer.png'
 
 export default function Dock() {
-   const { apps, startedSystem } = useContext(WindowContext)
+   const { apps, startedSystem, startedApplication } = useContext(WindowContext)
    const [showMenu, setShowMenu] = useState(false)
+
+   useEffect(() => {
+      startedApplication('vsCode', true, true, true)
+   }, [])
 
    const handlerMouseOver = () => {
       setShowMenu(true)
@@ -48,6 +52,7 @@ export default function Dock() {
                <ul className="flex gap-4 items-center">
                   <li>
                      <button
+                        id="start"
                         className=" flex flex-col items-center gap-0.5"
                         onClick={() =>
                            startedSystem('brave', true, true, false)
