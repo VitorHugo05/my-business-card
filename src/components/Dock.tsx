@@ -37,8 +37,6 @@ export default function Dock() {
       fetchData();
    }, [apps, showMenu]);
 
-   console.log(result);
-
    useEffect(() => {
       startedApplication('vsCode', true, true, true);
    }, []);

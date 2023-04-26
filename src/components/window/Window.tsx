@@ -1,10 +1,10 @@
 import { WindowContext, systemTypeProps } from '@/context/WindowedContext';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Draggable from 'react-draggable';
 
 import { MaximazeBrave, MinimizeBrave } from '../brave/brave';
 import { MaximazeVscode, MinimizeVscode } from '../vscode/vscode';
-import { MaximazeDiscord, MinimizeDiscord } from '../discord/discord';
+import Discord from '../discord/Discord';
 import { MaximazeExplorer, MinimizeExplorer } from '../explorer/explorer';
 import { MaximazeTerminal, MinimizeTerminal } from '../terminal/terminal';
 
@@ -34,12 +34,12 @@ export default function Window() {
             };
          case 'discord':
             return {
-               Maximazecontent: <MaximazeDiscord />,
-               Minimizecontent: <MinimizeDiscord />,
+               Maximazecontent: <Discord />,
+               Minimizecontent: <Discord />,
                title: 'Discord',
                titleColor: 'text-[#fff]',
                navBackgroundColor: 'bg-[#232135]',
-               backgroundColor: 'bg-[#8F8CA8]'
+               backgroundColor: 'bg-[#5865f2]'
             };
          case 'fileExplorer':
             return {
@@ -80,11 +80,12 @@ export default function Window() {
                >
                   <div
                      className={`
-                     ${
-                        apps[key as systemTypeProps].isMinimize
-                           ? 'hidden '
-                           : 'visible '
-                     }
+                      ${
+                         apps[key as systemTypeProps].isMinimize
+                            ? 'hidden'
+                            : 'visible'
+                      }
+                     
                      ${
                         apps[key as systemTypeProps].isMaximized
                            ? 'w-3/4 h-3/4'
@@ -92,11 +93,7 @@ export default function Window() {
                      }
                      z-1 absolute 
                      transition-opacity duration-300 ease-in-out 
-                     ${
-                        apps[key as systemTypeProps].isOpen
-                           ? 'opacity-100'
-                           : 'opacity-0'
-                     }
+                     
                         `}
                   >
                      <nav
@@ -148,8 +145,6 @@ export default function Window() {
                         <div className="w-20 h-full">&nbsp;</div>
                      </nav>
 
-                     <div className="w-full h-px bg-slate-400" />
-
                      <div
                         className={`
                               ${
@@ -157,11 +152,12 @@ export default function Window() {
                                     ? 'rounded-b-lg'
                                     : 'rounded-none'
                               } 
-                              w-full h-full 
+                              w-full    h-full 
                               ${
                                  apps[key as systemTypeProps].isOpen &&
                                  renderSystem(key).backgroundColor
                               }
+                              flex items-center justify-center
                            `}
                      >
                         {apps[key as systemTypeProps].isOpen &&

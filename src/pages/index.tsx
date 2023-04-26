@@ -1,8 +1,8 @@
-import { BrowserView, MobileView } from 'react-device-detect'
+import { BrowserView, MobileView } from 'react-device-detect';
 
-import Dock from '@/components/Dock'
-import MenuBar from '@/components/MenuBar'
-import Window from '@/components/window/Window'
+import Dock from '@/components/Dock';
+import MenuBar from '@/components/MenuBar';
+import Window from '@/components/window/Window';
 
 export default function Home() {
    return (
@@ -22,5 +22,5 @@ export default function Home() {
             </div>
          </MobileView>
       </>
-   )
+   );
 }
