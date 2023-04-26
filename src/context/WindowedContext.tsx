@@ -49,7 +49,7 @@ interface WindowContextProps {
 export const WindowContext = createContext({} as WindowContextProps);
 
 export const WindowProvider = ({ children }: WindowProviderProps) => {
-   const [apps, setApps] = useState<appsProps>({} as appsProps);
+   const [apps, setApps] = useState({} as appsProps);
 
    function startedSystem(
       system: systemTypeProps,

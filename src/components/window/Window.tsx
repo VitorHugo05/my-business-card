@@ -1,16 +1,16 @@
-import { WindowContext, systemTypeProps } from '@/context/WindowedContext'
-import { useContext } from 'react'
-import Draggable from 'react-draggable'
+import { WindowContext, systemTypeProps } from '@/context/WindowedContext';
+import { useContext } from 'react';
+import Draggable from 'react-draggable';
 
-import { MaximazeBrave, MinimizeBrave } from '../brave/brave'
-import { MaximazeVscode, MinimizeVscode } from '../vscode/vscode'
-import { MaximazeDiscord, MinimizeDiscord } from '../discord/discord'
-import { MaximazeExplorer, MinimizeExplorer } from '../explorer/explorer'
-import { MaximazeTerminal, MinimizeTerminal } from '../terminal/terminal'
+import { MaximazeBrave, MinimizeBrave } from '../brave/brave';
+import { MaximazeVscode, MinimizeVscode } from '../vscode/vscode';
+import { MaximazeDiscord, MinimizeDiscord } from '../discord/discord';
+import { MaximazeExplorer, MinimizeExplorer } from '../explorer/explorer';
+import { MaximazeTerminal, MinimizeTerminal } from '../terminal/terminal';
 
 export default function Window() {
    const { apps, maximizedSystem, startedSystem, minimizeSystem } =
-      useContext(WindowContext)
+      useContext(WindowContext);
 
    function renderSystem(system: systemTypeProps) {
       switch (system) {
@@ -19,41 +19,46 @@ export default function Window() {
                Maximazecontent: <MaximazeBrave />,
                Minimizecontent: <MinimizeBrave />,
                title: 'Brave',
-               backgroundColor: 'bg-[#8F8CA8]',
-               navBackgroundColor: 'bg-[#232135]'
-            }
+               titleColor: 'text-[#fff]',
+               navBackgroundColor: 'bg-[#232323]',
+               backgroundColor: 'bg-[#8F8CA8]'
+            };
          case 'vsCode':
             return {
                Maximazecontent: <MaximazeVscode />,
                Minimizecontent: <MinimizeVscode />,
                title: 'VSCode',
-               backgroundColor: 'bg-[#8F8CA8]',
-               navBackgroundColor: 'bg-[#232135]'
-            }
+               titleColor: 'text-[#fff]',
+               navBackgroundColor: 'bg-[#232135]',
+               backgroundColor: 'bg-[#8F8CA8]'
+            };
          case 'discord':
             return {
                Maximazecontent: <MaximazeDiscord />,
                Minimizecontent: <MinimizeDiscord />,
                title: 'Discord',
-               backgroundColor: 'bg-[#8F8CA8]',
-               navBackgroundColor: 'bg-[#232135]'
-            }
+               titleColor: 'text-[#fff]',
+               navBackgroundColor: 'bg-[#232135]',
+               backgroundColor: 'bg-[#8F8CA8]'
+            };
          case 'fileExplorer':
             return {
                Maximazecontent: <MaximazeExplorer />,
                Minimizecontent: <MinimizeExplorer />,
                title: 'File Explorer',
-               backgroundColor: 'bg-[#8F8CA8]',
-               navBackgroundColor: 'bg-[#232135]'
-            }
+               titleColor: 'text-[#fff]',
+               navBackgroundColor: 'bg-[#232135]',
+               backgroundColor: 'bg-[#8F8CA8]'
+            };
          case 'terminal':
             return {
                Maximazecontent: <MaximazeTerminal />,
                Minimizecontent: <MinimizeTerminal />,
                title: 'Terminal',
-               backgroundColor: 'bg-[#8F8CA8]',
-               navBackgroundColor: 'bg-[#232135]'
-            }
+               titleColor: 'text-[#fff]',
+               navBackgroundColor: 'bg-[#232135]',
+               backgroundColor: 'bg-[#8F8CA8]'
+            };
       }
    }
 
@@ -130,12 +135,17 @@ export default function Window() {
                            />
                         </div>
 
-                        <h1>
+                        <h1
+                           className={`${
+                              apps[key as systemTypeProps].isOpen &&
+                              renderSystem(key).titleColor
+                           }`}
+                        >
                            {apps[key as systemTypeProps].isOpen &&
                               renderSystem(key).title}
                         </h1>
 
-                        <div>&nbsp;</div>
+                        <div className="w-20 h-full">&nbsp;</div>
                      </nav>
 
                      <div className="w-full h-px bg-slate-400" />
@@ -161,8 +171,8 @@ export default function Window() {
                      </div>
                   </div>
                </Draggable>
-            )
+            );
          })}
       </>
-   )
+   );
 }

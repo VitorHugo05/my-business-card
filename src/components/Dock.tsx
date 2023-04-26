@@ -13,16 +13,31 @@ export default function Dock() {
    const { apps, startedSystem, startedApplication } =
       useContext(WindowContext);
    const [showMenu, setShowMenu] = useState(false);
+   const [result, setResult] = useState([]);
 
-   let translate = '';
+   useEffect(() => {
+      const fetchData = async () => {
+         const result = await Promise.all(
+            Object.keys(apps).map(async (key: any) => {
+               const app = apps[key as systemTypeProps];
+               if (await app.isMinimize) {
+                  return '-translate-y-4';
+               }
+               if (!(await app.isMinimize) && showMenu) {
+                  return '-translate-y-4';
+               }
+               if (!(await app.isMinimize) && !showMenu) {
+                  return 'translate-y-80';
+               }
+            })
+         );
+         setResult(result);
+      };
 
-   Object.keys(apps).map((key: any) => {
-      translate = apps[key as systemTypeProps].isMinimize
-         ? '-translate-y-4'
-         : !apps[key as systemTypeProps].isMinimize && showMenu
-         ? '-translate-y-4'
-         : 'translate-y-80';
-   });
+      fetchData();
+   }, [apps, showMenu]);
+
+   console.log(result);
 
    useEffect(() => {
       startedApplication('vsCode', true, true, true);
@@ -35,8 +50,6 @@ export default function Dock() {
       setShowMenu(false);
    };
 
-   console.log(showMenu);
-
    return (
       <div
          onMouseOver={handlerMouseOver}
@@ -44,9 +57,9 @@ export default function Dock() {
          className="order-1 z-10 w-full h-24 bottom-0 fixed"
       >
          <footer
-            className={`
-            ${translate}
-            order-2 flex-1 transition duration-500 w-full h-24 flex items-center justify-center
+            id="dock-animation"
+            className={` ${result.join(' ')}
+             order-2 flex-1 transition duration-500 w-full h-24 flex items-center justify-center
          `}
          >
             <nav className=" p-4 border border-neutral-300 backdrop-blur-lg shadow-2xl bg-neutral-200/50 h-26 w-fit rounded-3xl inset-x-0 bottom-1 -translate-y-3">
@@ -64,6 +77,7 @@ export default function Dock() {
                         )}
                      </button>
                   </li>
+
                   <li>
                      <button
                         id="start"

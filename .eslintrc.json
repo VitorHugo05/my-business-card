@@ -1,37 +1,31 @@
 {
-   "extends": [
-     "react-app",
-     "prettier"
-     
-   ],
+   "extends": ["react-app", "prettier"],
    "env": {
-     "mocha": true,
-     "es6": true,
-     "commonjs": true,
-     "browser": true
+      "mocha": true,
+      "es6": true,
+      "commonjs": true,
+      "browser": true
    },
    "parserOptions": {
-     "ecmaVersion": 2020,
-     "sourceType": "module",
-     "ecmaFeatures": {
-       "jsx": true,
-       "modules": true,
-       "experimentalObjectRestSpread": true
-     }
+      "ecmaVersion": 2020,
+      "sourceType": "module",
+      "ecmaFeatures": {
+         "jsx": true,
+         "modules": true,
+         "experimentalObjectRestSpread": true
+      }
    },
-   "plugins": [
-     "prettier"
-   ],
+   "plugins": ["prettier", "react-hooks"],
    "rules": {
-     "no-underscore-dangle": "off",
-     "class-methods-use-this": "off",
-     "import/no-extraneous-dependencies": [
-       "error",
-       {
-         "devDependencies": true
-       }
-     ]
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn", // <--- THIS IS THE NEW RULE
+      "no-underscore-dangle": "off",
+      "class-methods-use-this": "off",
+      "import/no-extraneous-dependencies": [
+         "error",
+         {
+            "devDependencies": true
+         }
+      ]
    }
-   
-
- }
+}
