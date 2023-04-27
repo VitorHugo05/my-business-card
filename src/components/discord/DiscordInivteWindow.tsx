@@ -5,9 +5,8 @@ import { useDateDiscord } from '@/hooks/useDateDiscord';
 
 export default function DiscordInviteWindow() {
    const { onlineMembers, totalMembers } = useDateDiscord({
-      botToken:
-         'MTEwMDc2MDU2NjQ1ODQ5OTEyMg.GEg7mH.ic7UJ703IL0V0j9tC_z0v9eBLv_Q5BGnRRq04M',
-      guildId: '792127924501086218'
+      botToken: process.env.TOKEN,
+      guildId: process.env.GUILD_URL
    });
 
    return (
