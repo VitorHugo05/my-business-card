@@ -1,13 +1,14 @@
 import * as dotenv from 'dotenv';
 dotenv.config();
 import Image from 'next/image';
-import useDateDiscord from '../../hooks/useDataDiscord';
+import { useDateDiscord } from '@/hooks/useDateDiscord';
 
 export default function DiscordInviteWindow() {
-   const { onlineMembers, totalMembers } = useDateDiscord(
-      process.env.TOKEN,
-      process.env.GUILD_URL
-   );
+   const { onlineMembers, totalMembers } = useDateDiscord({
+      botToken:
+         'MTEwMDc2MDU2NjQ1ODQ5OTEyMg.GEg7mH.ic7UJ703IL0V0j9tC_z0v9eBLv_Q5BGnRRq04M',
+      guildId: '792127924501086218'
+   });
 
    return (
       <div className="rounded-lg bg-[#313338] w-[480px] h-[330px] flex flex-col items-center justify-center">
