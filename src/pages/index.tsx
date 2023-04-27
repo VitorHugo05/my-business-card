@@ -3,6 +3,7 @@ import { BrowserView, MobileView } from 'react-device-detect';
 import Dock from '@/components/Dock';
 import MenuBar from '@/components/MenuBar';
 import Window from '@/components/window/Window';
+import WorkSpace from '@/components/WorkSpace';
 
 export default function Home() {
    return (
@@ -10,6 +11,7 @@ export default function Home() {
          <BrowserView>
             <section className="flex flex-col justify-center items-center w-screen h-screen">
                <MenuBar />
+               <WorkSpace />
                <Dock />
                <Window />
             </section>

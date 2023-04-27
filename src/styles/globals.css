@@ -11,3 +11,8 @@
 body {
    @apply bg-hero overflow-hidden
 }
+
+#discord-open {
+   @apply bg-discord bg-cover
+
+}

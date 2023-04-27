@@ -4,7 +4,7 @@ import Draggable from 'react-draggable';
 
 import { MaximazeBrave, MinimizeBrave } from '../brave/brave';
 import { MaximazeVscode, MinimizeVscode } from '../vscode/vscode';
-import Discord from '../discord/Discord';
+import { MaximazeDiscord, MinimizeDiscord } from '../discord/Discord';
 import { MaximazeExplorer, MinimizeExplorer } from '../explorer/explorer';
 import { MaximazeTerminal, MinimizeTerminal } from '../terminal/terminal';
 
@@ -34,8 +34,8 @@ export default function Window() {
             };
          case 'discord':
             return {
-               Maximazecontent: <Discord />,
-               Minimizecontent: <Discord />,
+               Maximazecontent: <MaximazeDiscord />,
+               Minimizecontent: <MinimizeDiscord />,
                title: 'Discord',
                titleColor: 'text-[#fff]',
                navBackgroundColor: 'bg-[#232135]',
@@ -158,6 +158,7 @@ export default function Window() {
                                  renderSystem(key).backgroundColor
                               }
                               flex items-center justify-center
+                              
                            `}
                      >
                         {apps[key as systemTypeProps].isOpen &&

@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: theme => ({
-         'hero': "url('/image/background.png')"
+         'hero': "url('/image/background.png')",
+         'discord': "url(/image/stacked-waves-haikei.svg)"
       })
     },
   plugins: [],

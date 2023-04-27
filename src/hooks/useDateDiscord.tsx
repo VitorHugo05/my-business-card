@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Eris, { Client } from 'eris';
+import { Client } from 'eris';
 
 export type DateDiscordProps = {
    botToken: string;

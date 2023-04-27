@@ -1,11 +1,23 @@
+import NavBrave from './NavBrave';
+
 export function MaximazeBrave() {
    return (
       <>
-         <h1></h1>
+         <NavBrave />
+         <main>
+            <div></div>
+         </main>
       </>
    );
 }
 
 export function MinimizeBrave() {
-   return <></>;
+   return (
+      <>
+         <NavBrave />
+         <main>
+            <div></div>
+         </main>
+      </>
+   );
 }

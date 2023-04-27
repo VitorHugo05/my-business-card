@@ -3,14 +3,20 @@ dotenv.config();
 import Image from 'next/image';
 import { useDateDiscord } from '@/hooks/useDateDiscord';
 
-export default function DiscordInviteWindow() {
+interface Props {
+   translate?: string;
+}
+
+export default function DiscordInviteWindow(props: Props) {
    const { onlineMembers, totalMembers } = useDateDiscord({
       botToken: process.env.TOKEN,
       guildId: process.env.GUILD_URL
    });
 
    return (
-      <div className="rounded-lg bg-[#313338] w-[480px] h-[330px] flex flex-col items-center justify-center">
+      <div
+         className={`${props.translate} rounded-lg bg-[#313338] w-[480px] h-[325px] flex flex-col items-center justify-center absolute`}
+      >
          <div className="rounded-lg mb-6">
             <Image
                src={
@@ -27,7 +33,7 @@ export default function DiscordInviteWindow() {
             <span className=" text-[#b4b4b4] text-sm">
                Dev Vitor convidou você para se juntar à
             </span>
-            <h1 className="mt-2 text-xl">é us guri</h1>
+            <h1 className="mt-2 text-xl font-bold">é us guri</h1>
 
             <div className="mt-2 flex flex-row gap-5 items-center justify-center">
                <div className="flex flex-row items-center gap-2">
