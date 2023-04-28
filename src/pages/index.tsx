@@ -4,11 +4,14 @@ import Dock from '@/components/Dock';
 import MenuBar from '@/components/MenuBar';
 import Window from '@/components/window/Window';
 import WorkSpace from '@/components/WorkSpace';
+import { ToggleDarkModeContext } from '@/context/ToggleDarkContext';
+import { useContext } from 'react';
 
 export default function Home() {
+   const { darkMode } = useContext(ToggleDarkModeContext);
    return (
       <>
-         <BrowserView>
+         <BrowserView className={darkMode ? '' : 'dark'}>
             <section className="flex flex-col justify-center items-center w-screen h-screen">
                <MenuBar />
                <WorkSpace />

@@ -12,7 +12,7 @@ import Triangle from '../../../public/icons/triangle-svgrepo-com.svg';
 export default function NavBrave() {
    return (
       <nav className="w-full absolute top-11">
-         <div className="bg-white w-full h-12 flex justify-between items-center">
+         <div className="dark:bg-slate-600 bg-white w-full h-12 flex justify-between items-center">
             <div className="ml-4 flex flex-row gap-2">
                <div className="w-8 h-8 flex justify-center rounded-sm duration-300 hover:bg-slate-400/30">
                   <Image

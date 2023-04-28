@@ -1,28 +1,30 @@
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
-import { useState } from 'react';
+import { useContext } from 'react';
+import { ToggleDarkModeContext } from '@/context/ToggleDarkContext';
 
 export default function WorkSpace() {
-   const [isDarkMode, setDarkMode] = useState(false);
-
-   const toggleDarkMode = (checked: boolean) => {
-      setDarkMode(checked);
-   };
+   const { ToggleDarkLightMode, darkMode } = useContext(ToggleDarkModeContext);
+   // console.log(darkMode);
+   let light = 'LightMode';
+   let dark = 'DarkMode';
 
    return (
       <div className="items-center flex flex-col absolute top-0 left-0 translate-x-14 translate-y-24">
          <DarkModeSwitch
             style={{ marginBottom: '2rem' }}
-            checked={isDarkMode}
-            onChange={toggleDarkMode}
+            checked={darkMode}
+            onChange={() =>
+               ToggleDarkLightMode(darkMode == true ? false : true)
+            }
             size={60}
          />
          <div
             className={`${
-               isDarkMode ? 'text-white' : 'text-black'
+               darkMode ? 'text-white' : 'text-black'
             } text-sm -translate-y-6 flex flex-col items-center justify-center`}
          >
             <p>Toggle</p>
-            <p>DarkMode</p>
+            <p>{darkMode ? dark : light}</p>
          </div>
       </div>
    );

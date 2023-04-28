@@ -19,8 +19,8 @@ export default function Window() {
                Maximazecontent: <MaximazeBrave />,
                Minimizecontent: <MinimizeBrave />,
                title: 'Brave',
-               titleColor: 'text-[#fff]',
-               navBackgroundColor: 'bg-[#232323]',
+               titleColor: 'text-[#000] dark:text-[#fff]',
+               navBackgroundColor: 'dark:bg-[#232323] bg-neutral-100',
                backgroundColor: 'bg-[#8F8CA8]'
             };
          case 'vsCode':
@@ -37,8 +37,8 @@ export default function Window() {
                Maximazecontent: <MaximazeDiscord />,
                Minimizecontent: <MinimizeDiscord />,
                title: 'Discord',
-               titleColor: 'text-[#fff]',
-               navBackgroundColor: 'bg-[#232135]',
+               titleColor: 'text-[#000] dark:text-[#fff]',
+               navBackgroundColor: 'dark:bg-[#232135] bg-neutral-100',
                backgroundColor: 'bg-[#5865f2]'
             };
          case 'fileExplorer':

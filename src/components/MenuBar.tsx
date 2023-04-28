@@ -58,7 +58,7 @@ export default function MenuBar() {
    }, []);
 
    return (
-      <nav className="z-50 backdrop-blur-lg bg-neutral-300/30 absolute top-0 h-[36px] w-full flex items-center justify-between">
+      <nav className="z-50 backdrop-blur-lg transition-colors delay-75 dark:bg-slate-800/30 bg-neutral-300/30 absolute top-0 h-[36px] w-full flex items-center justify-between">
          <div className="ml-5 flex flex-row gap-5 text-sm text-white">
             <Image
                className="hover:cursor-pointer"
@@ -77,12 +77,12 @@ export default function MenuBar() {
          </div>
          <div className="mr-5 flex flex-row items-center">
             <div className="flex flex-row gap-5 mr-8">
-               <BatteryCharging className="md:visible invisible hover:cursor-pointer" />
-               <Wifi className="md:visible invisible hover:cursor-pointer" />
-               <Search className="md:visible invisible hover:cursor-pointer" />
+               <BatteryCharging className="text-white md:visible invisible hover:cursor-pointer" />
+               <Wifi className="text-white md:visible invisible hover:cursor-pointer" />
+               <Search className="text-white md:visible invisible hover:cursor-pointer" />
             </div>
 
-            <div className="flex flex-row gap-5">
+            <div className="text-white flex flex-row gap-5">
                <p>
                   {context.week} {context.month} {context.date}{' '}
                </p>
