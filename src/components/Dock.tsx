@@ -70,7 +70,7 @@ export default function Dock() {
                      >
                         <Image src={Vscode} alt="" width={80} height={80} />
                         {apps?.vsCode?.isStarted && (
-                           <div className="backdrop-blur-lg absolute bottom-0 mb-1 rounded-full h-2 w-2 transition-colors delay-75 dark:bg-slate-900/70 bg-neutral-50/70"></div>
+                           <div className="backdrop-blur-lg absolute bottom-0 mb-1 rounded-full h-2 w-2 transition-colors delay-75  bg-neutral-50/70"></div>
                         )}
                      </button>
                   </li>
@@ -85,7 +85,7 @@ export default function Dock() {
                      >
                         <Image src={Brave} alt="" width={80} height={80} />
                         {apps?.brave?.isStarted && (
-                           <div className="backdrop-blur-lg absolute bottom-0 mb-1 rounded-full h-2 w-2 transition-colors delay-75 dark:bg-slate-900/70 bg-neutral-50/70"></div>
+                           <div className="backdrop-blur-lg absolute bottom-0 mb-1 rounded-full h-2 w-2 transition-colors delay-75  bg-neutral-50/70"></div>
                         )}
                      </button>
                   </li>
@@ -104,7 +104,7 @@ export default function Dock() {
                            height={75}
                         />
                         {apps?.terminal?.isStarted && (
-                           <div className="backdrop-blur-lg absolute bottom-0 mb-1 rounded-full h-2 w-2 transition-colors delay-75 dark:bg-slate-900/70 bg-neutral-50/70"></div>
+                           <div className="backdrop-blur-lg absolute bottom-0 mb-1 rounded-full h-2 w-2 transition-colors delay-75  bg-neutral-50/70"></div>
                         )}
                      </button>
                   </li>
@@ -118,7 +118,7 @@ export default function Dock() {
                      >
                         <Image src={Discord} alt="" width={80} height={80} />
                         {apps?.discord?.isStarted && (
-                           <div className="backdrop-blur-lg absolute bottom-0 mb-1 rounded-full h-2 w-2 transition-colors delay-75 dark:bg-slate-900/70 bg-neutral-50/70"></div>
+                           <div className="backdrop-blur-lg absolute bottom-0 mb-1 rounded-full h-2 w-2 transition-colors delay-75  bg-neutral-50/70"></div>
                         )}
                      </button>
                   </li>
@@ -138,7 +138,7 @@ export default function Dock() {
                            height={80}
                         />
                         {apps?.fileExplorer?.isStarted && (
-                           <div className="backdrop-blur-lg absolute bottom-0 mb-1 rounded-full h-2 w-2 transition-colors delay-75 dark:bg-neutral-3  00/70 bg-neutral-50/70"></div>
+                           <div className="backdrop-blur-lg absolute bottom-0 mb-1 rounded-full h-2 w-2 transition-colors delay-75 dark:bg-neutral-3 bg-neutral-50/70"></div>
                         )}
                      </button>
                   </li>

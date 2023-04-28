@@ -9,7 +9,7 @@
 }
 
 body {
-   @apply bg-hero overflow-hidden
+   @apply overflow-hidden
 }
 
 #discord-open {

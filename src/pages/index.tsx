@@ -11,7 +11,15 @@ export default function Home() {
    const { darkMode } = useContext(ToggleDarkModeContext);
    return (
       <>
-         <BrowserView className={darkMode ? '' : 'dark'}>
+         <BrowserView
+            className={` bg-cover trasition duration-300 ease-in-out ${
+               darkMode ? '' : 'dark'
+            } ${
+               darkMode
+                  ? 'bg-[url("../../public/image/macos-monterey.jpg")]'
+                  : 'bg-[url("../../public/image/macos-monterey-dark.jpg")]'
+            }`}
+         >
             <section className="flex flex-col justify-center items-center w-screen h-screen">
                <MenuBar />
                <WorkSpace />
