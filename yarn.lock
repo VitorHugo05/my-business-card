@@ -6556,6 +6556,13 @@
   dependencies:
     "debounce" "^1.2.1"
 
+"react-wavify@^1.8.0":
+  "integrity" "sha512-8Pxd1vLuC5VBUxvWa2EFYsQLZIjY68KxzM4ztw2ZG6PCAnu/d0lQDCIW+mathr/PH2AAt4A2MJHVPuWs/BLP2w=="
+  "resolved" "https://registry.npmjs.org/react-wavify/-/react-wavify-1.8.0.tgz"
+  "version" "1.8.0"
+  dependencies:
+    "prop-types" "^15.8.1"
+
 "react-zdog@>=1.0":
   "integrity" "sha512-L6/8Zi+Nf+faNMsSZ31HLmLlu6jcbs/jqqFvme7CFnYjAeYfhJ4HyuHKd7Pu/zk9tegv6FaJj1v+hmUwUpKLQw=="
   "resolved" "https://registry.npmjs.org/react-zdog/-/react-zdog-1.0.11.tgz"
@@ -6568,7 +6575,7 @@
     "resize-observer-polyfill" "^1.5.1"
     "scheduler" "0.13.3"
 
-"react@^16.0.0", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.5.1 || ^17.0.0 || ^18.0.0", "react@^16.8.0  || >=17.0.0 || >=18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^18.0.0", "react@^18.2.0", "react@>= 0.14.0", "react@>= 16.3.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16", "react@>=16.13", "react@>=16.8", "react@>=17.0", "react@>=18.0", "react@>=18.0.0", "react@18.2.0":
+"react@^0.13.0 || ^0.14.0 || >=15", "react@^16.0.0", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.5.1 || ^17.0.0 || ^18.0.0", "react@^16.8.0  || >=17.0.0 || >=18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^18.0.0", "react@^18.2.0", "react@>= 0.14.0", "react@>= 16.3.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16", "react@>=16.13", "react@>=16.8", "react@>=17.0", "react@>=18.0", "react@>=18.0.0", "react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"

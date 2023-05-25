@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useContext, useState, useEffect } from 'react';
 import { WindowContext, systemTypeProps } from '@/context/WindowedContext';
 
-import TerminalApple from '../../public/icons/terminal-apple.png';
+import TerminalApple from '/public/icons/terminal-apple.png';
 import Vscode from '../../public/icons/vscode.png';
 import Brave from '../../public/icons/brave.png';
 import Discord from '../../public/icons/discord.png';

@@ -13,7 +13,6 @@ export const ToggleDarkModeContext = createContext({} as ToggleDarkModeProps);
 
 export const ToggleProvider = ({ children }: ToggleProviderProps) => {
    const [darkMode, setDarkMode] = useState(true);
-   console.log(darkMode);
 
    function ToggleDarkLightMode(checked: boolean) {
       setDarkMode(checked);

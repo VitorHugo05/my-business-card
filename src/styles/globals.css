@@ -6,6 +6,9 @@
 
 * {
    font-family: 'Montserrat', sans-serif;
+   padding: 0; 
+   margin:0; 
+   box-sizing:border-box;
 }
 
 body {
@@ -14,6 +17,10 @@ body {
 
 #discord-open {
    @apply bg-discord bg-cover
-
 }
 
+#wave {
+   width: 1/2;
+   height: 100%;
+   transform: rotate(90deg);
+}

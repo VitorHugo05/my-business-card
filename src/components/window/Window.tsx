@@ -77,37 +77,34 @@ export default function Window() {
                         ? undefined
                         : { x: 0, y: 36 }
                   }
+
                >
                   <div
                      className={`
-                      ${
-                         apps[key as systemTypeProps].isMinimize
-                            ? 'hidden'
-                            : 'visible'
-                      }
+                      ${apps[key as systemTypeProps].isMinimize
+                           ? 'hidden'
+                           : 'visible'
+                        }
                      
-                     ${
-                        apps[key as systemTypeProps].isMaximized
+                     ${apps[key as systemTypeProps].isMaximized
                            ? 'w-3/4 h-3/4'
                            : 'w-full h-full'
-                     }
+                        }
                      z-1 absolute 
                      transition-opacity duration-300 ease-in-out 
-                     
-                        `}
+                     `}
+                     id='draggable-item'
                   >
                      <nav
                         className={` 
-                              ${
-                                 apps[key as systemTypeProps].isMaximized
-                                    ? 'rounded-t-lg'
-                                    : 'rounded-none'
-                              }
+                              ${apps[key as systemTypeProps].isMaximized
+                              ? 'rounded-t-lg'
+                              : 'rounded-none'
+                           }
                               flex flex-row items-center justify-between h-12 
-                              ${
-                                 apps[key as systemTypeProps].isOpen &&
-                                 renderSystem(key).navBackgroundColor
-                              }
+                              ${apps[key as systemTypeProps].isOpen &&
+                           renderSystem(key).navBackgroundColor
+                           }
                            `}
                      >
                         <div className="flex items-center gap-2 pb-6 ml-5 mt-5">
@@ -133,10 +130,9 @@ export default function Window() {
                         </div>
 
                         <h1
-                           className={`${
-                              apps[key as systemTypeProps].isOpen &&
+                           className={`${apps[key as systemTypeProps].isOpen &&
                               renderSystem(key).titleColor
-                           }`}
+                              }`}
                         >
                            {apps[key as systemTypeProps].isOpen &&
                               renderSystem(key).title}
@@ -147,22 +143,20 @@ export default function Window() {
 
                      <div
                         className={`
-                              ${
-                                 apps[key as systemTypeProps].isMaximized
-                                    ? 'rounded-b-lg'
-                                    : 'rounded-none'
-                              } 
+                              ${apps[key as systemTypeProps].isMaximized
+                              ? 'rounded-b-lg'
+                              : 'rounded-none'
+                           } 
                               w-full    h-full 
-                              ${
-                                 apps[key as systemTypeProps].isOpen &&
-                                 renderSystem(key).backgroundColor
-                              }
+                              ${apps[key as systemTypeProps].isOpen &&
+                           renderSystem(key).backgroundColor
+                           }
                               flex items-center justify-center
                               
                            `}
                      >
                         {apps[key as systemTypeProps].isOpen &&
-                        apps[key as systemTypeProps].isMaximized
+                           apps[key as systemTypeProps].isMaximized
                            ? renderSystem(key).Minimizecontent
                            : renderSystem(key).Maximazecontent}
                      </div>
